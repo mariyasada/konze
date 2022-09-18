@@ -1,8 +1,11 @@
-import { Box, Toolbar, Typography} from '@mui/material'
+import { TrendingDownRounded } from '@mui/icons-material';
+import { Box, Toolbar, Typography, useMediaQuery} from '@mui/material'
 import { makeStyles } from '@mui/styles';
 import React,{useState} from 'react';
-import { spanStyle } from '../../utils/commonStyles';
+import { spanStyle,spanMediaQuery,trendingIcon,trendingIconQuery } from '../../utils/commonStyles';
 import {TabsComponent} from '../index';
+
+
 
 const useStyles=makeStyles(theme=>({
   containerBox:{
@@ -11,7 +14,7 @@ const useStyles=makeStyles(theme=>({
     position:"absolute",
     top:0,
     left:0,
-    backgroundColor:"#079A6B"
+    backgroundColor:"#079A6B",
   },
   smallBox:{
     height:35,
@@ -26,7 +29,8 @@ const useStyles=makeStyles(theme=>({
     display:"flex", 
     flexDirection:"column",
     alignItems:"center",
-    justifyContent:"center"
+    justifyContent:"center",
+    width:"100%"
   },
   tabBox:{
     width:"fit-content",
@@ -39,12 +43,14 @@ const useStyles=makeStyles(theme=>({
     marginRight:"auto",
     boxShadow:"inset 0px 0px 20px rgba(0, 0, 0, 0.25)",
     position:"relative"
-  }
+  }, 
+  
 }));
 
  export const Header = () => {
   const [value,setValue]=useState('annually');
   const classes=useStyles();
+  const isSmallScreen = useMediaQuery(theme => theme.breakpoints.down("md"));
   return (
     <>
     <Box className={classes.containerBox}>
@@ -52,14 +58,18 @@ const useStyles=makeStyles(theme=>({
       </Box>
       
       <Toolbar className={classes.toolBarStyle}>
-        <Typography variant="h4">Simple,Transparent Pricing</Typography>
-        <Typography variant="subtitle1" sx={{mt:1,fontWeight:300,width:"300px"}}>Choose the plan that's right for you.</Typography>
+        <Typography  variant={isSmallScreen ?"h5":"h4"}>Simple,Transparent Pricing</Typography>
+        <Typography variant={isSmallScreen?"subtitle2":"subtitle1"} sx={{mt:1,fontWeight:300,width:"300px"}}>Choose the plan that's right for you.</Typography>
       </Toolbar>
 
      <Box className={classes.tabBox}>
             <TabsComponent value={value} setValue={setValue}/>  
      </Box>
-     {value==="annually" &&<Typography component="span" sx={spanStyle}>SAVE 17%</Typography>}
+     {value==="annually" && (
+          <TrendingDownRounded  fontSize="large" sx={isSmallScreen?trendingIconQuery:trendingIcon}/>
+     )}
+
+     {value==="annually" &&<Typography component="span" sx={isSmallScreen ? spanMediaQuery:spanStyle}>SAVE 17%</Typography>}
     </Box>
     </>
   )

@@ -5,22 +5,40 @@ import {ArrowForward } from '@mui/icons-material'
 import {ListComponent} from '../index'
 import List from '@mui/material/List';
 import styled from '@emotion/styled'
+import { makeStyles } from '@mui/styles';
 
 const StyledButton = styled(Button)`
   &:hover {
     background: white;
   }
 `
+const useStyles=makeStyles(theme=>({
+  cardStyleQuery:{
+    [theme.breakpoints.down('md')]: {
+      width:"250px",
+      marginLeft:"-4.8rem"
+    },
+  },
+  fontStyleQuery:{
+    [theme.breakpoints.down('md')]: {
+      fontSize:"1rem"
+    },
+
+  }
+  
+}));
+
 
 
 export const CardComponent = ({Item}) => {
   const [isHover,setIsHover]=useState(false);
+  const classes=useStyles();
   return (
-    <Card sx={isHover ? cardHoverStyle :cardStyle} onMouseEnter={()=>setIsHover(true)} onMouseLeave={()=>setIsHover(false)}>
+    <Card sx={isHover ? cardHoverStyle :cardStyle} onMouseEnter={()=>setIsHover(true)} onMouseLeave={()=>setIsHover(false)}  className={classes.cardStyleQuery}>
       <CardContent >
-            <Typography  gutterBottom sx={nameStyle}>{Item.name} </Typography>
+            <Typography  gutterBottom sx={nameStyle} className={classes.fontStyleQuery}>{Item.name} </Typography>
             <Typography sx={subtitleStyle} gutterBottom>{Item.subtitle} </Typography>
-            <Typography sx={isHover?fontHoverStyle:fontStyle}>{Item.name==="Advance"?`${Item.number}`:`${Item.price}`} </Typography>
+            <Typography sx={isHover?fontHoverStyle:fontStyle} >{Item.name==="Advance"?`${Item.number}`:`${Item.price}`} </Typography>
             <StyledButton variant="contained" sx={isHover ? cardHoverButton :cardButton}>{Item.name==="Advance"?"Talk to Us":"Get started"}</StyledButton>
             <List sx = {{...listStyles}}>
                 {Item.features.map((list)=>{

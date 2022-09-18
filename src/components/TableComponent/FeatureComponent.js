@@ -10,8 +10,7 @@ const useStyles=makeStyles({
     },
     subtitleStyle:{
         fontSize:{ xs: 'x-small', sm: 'small', md: 'medium', lg: 'large' },
-        color:"#079A6B",
-        
+        color:"#079A6B",        
     },
     headingStyle:{
         fontSize:{ xs: 'x-small', sm: 'small', md: 'medium', lg: 'large' },

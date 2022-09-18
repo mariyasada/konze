@@ -4,12 +4,15 @@ import { makeStyles } from '@mui/styles'
 import React from 'react'
 import { tableHeading,featuresData } from '../../Data/data'
 
-const useStyles=makeStyles({
+const useStyles=makeStyles(theme=>({
     container:{
-        minWidth:1020,
-        margin:" 1.4rem auto",
+        width:1020,
+        margin:" 1.2rem auto",
         boxShadow: "0px 10px 50px rgba(0, 0, 0, 0.1)",
-        borderRadius: "10px" 
+        borderRadius: "10px" ,
+        [theme.breakpoints.down('md')]: {
+        width:500,
+    },
     },
     cellStyle:{
         width:160,
@@ -30,7 +33,7 @@ const useStyles=makeStyles({
     }
 
 
-})
+}));
 
 
 export const TableComponent = () => {

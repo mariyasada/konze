@@ -1,14 +1,14 @@
-export const containerStyle={marginTop:"18rem",padding:" 0rem 5rem",}
+export const containerStyle={marginTop:"18rem",padding:" 0rem 5rem"}
 
 export const cardStyle={color:"black",backgroundColor:"#C5EADE",borderRadius:"10px",width:"350px",height:"auto",padding:"10px",position:"relative",cursor:"pointer"}
 
 export const listStyles={listStyleType: 'disc' ,pl:3}
 
-export const nameStyle={fontWeight:600,fontSize: { xs: 'x-small', sm: 'small', md: 'medium', lg: 'large' },}
+export const nameStyle={fontWeight:600,fontSize: { xs: 'medium', sm: 'medium', md: 'large', lg: 'large' },}
 
 export const subtitleStyle={fontWeight:560,fontSize:"12px"}
 
-export const fontStyle={fontWeight:"bold",fontSize: { xs: 'x-small', sm: 'small', md: 'medium', lg: 'large' },margin:"1rem 0rem"}
+export const fontStyle={fontWeight:"bold",fontSize: { xs: 'medium', sm: 'medium', md: 'large', lg: 'large' },margin:"1rem 0rem"}
 
 export const cardButton={width:"180px",padding:"10px",backgroundColor:"#079A6B",fontWeight:"medium"}
 
@@ -43,7 +43,7 @@ export const cardHoverStyle={
   cursor:"pointer"
 }
 
-export const fontHoverStyle={color:" #FFD600",fontWeight:"bold",fontSize: { xs: 'x-small', sm: 'small', md: 'medium', lg: 'large' },margin:"1rem 0rem"}
+export const fontHoverStyle={color:" #FFD600",fontWeight:"bold",fontSize: { xs: 'medium', sm: 'medium', md: 'large', lg: 'large' },margin:"1rem 0rem"}
 
 export const cardHoverButton={width:"180px",padding:"10px",backgroundColor:"white",fontWeight:"bold",color:"black"}
 
@@ -51,4 +51,29 @@ export const  cardActionHover={color: "white", fontWeight: 700}
 
 export const cardAction={ color: "#079A6B", fontWeight: 700};
 
-export const spanStyle={fontSize:"14px", color:"#FFD600",fontWeight: 700,position:"absolute",top:"14rem",right:"40rem"}
+export const spanStyle={fontSize:"14px", color:"#FFD600",fontWeight: 700,position:"absolute",
+top:"14rem",
+right:"40rem"
+}
+
+export const spanMediaQuery={
+  fontSize:"14px", 
+  color:"#FFD600",
+  fontWeight: 700,
+  position:"absolute",
+top:"13rem",
+left:"10rem"
+}
+
+export const trendingIcon={
+    position:"absolute",
+    top:"12rem",
+    left:"40rem"
+  }
+
+  export const trendingIconQuery={
+    position:"absolute",
+    top:"11rem",
+    left:"10rem"
+  }
+

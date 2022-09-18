@@ -17,3 +17,6 @@ code {
 .Tabs.active {
   background-color: "white";
 }
+:root {
+  overflow-x: hidden;
+}
